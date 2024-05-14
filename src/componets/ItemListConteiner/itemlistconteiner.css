@@ -1,0 +1,34 @@
+.item-list-container {
+  padding: 10px 50px;
+  background-color: darkgreen;
+}
+
+.title-item-list-container {
+  padding-bottom: 20px;
+  display: flex;
+  background-color: bisque;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: bisque;
+  margin-bottom: auto;
+  border: 50%;
+
+}
+
+.item {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  
+
+}
+
+.image-item {
+  border-radius: 5px;
+  margin: auto;
+}
