@@ -16,19 +16,18 @@ function App() {
 
     <div>
       <BrowserRouter>
+
+        <NavBar />
+
+
+
+
         <Routes>
-          <NavBar />
           <Switch>
             <Route path='/' exact Component={home} />
-
             <Route path='/' exact Component={exterior} />
             <Route path='/' exact Component={interior} />
           </Switch>
-        </Routes>
-
-
-        <Routes>
-
           <Route path="/" element={<ItemListConteiner saludo="Bienvenidos a tu Vivero Digital" />} />
           <Route path="/category/:idCategory" element={<itemListContainer saludo="Bienvenidos!!" />} />
           <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
