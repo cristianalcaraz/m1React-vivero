@@ -2,7 +2,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 const CartWidget = () => {
     return (
-        <div class="carrito">  
+        <div className="carrito">
             <FaCartArrowDown   />
             <p>2</p>
         </div>

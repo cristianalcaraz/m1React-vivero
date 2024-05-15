@@ -63,7 +63,7 @@ const getProducts = () => {
       //simulamos un retraso de red
       setTimeout(() => {
         resolve(products)
-      }, 3000);
+      }, 100);
     });
   };
 export default getProducts ;

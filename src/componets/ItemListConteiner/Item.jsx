@@ -5,7 +5,7 @@ const Item = ({ product }) => {
     <div className="item">
       <img className="image-item" src={product.image} style={{ width: "200px" }} />
       <p>{product.name}</p>
-      <Link to={`/detail/${product.id}`} > Ver detalles </Link>
+      <Link to={"/detail/" + product.id} > Ver detalles </Link>
     </div>
   );
 };

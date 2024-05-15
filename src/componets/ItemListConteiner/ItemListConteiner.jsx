@@ -12,10 +12,12 @@ const ItemListContainer = ({ saludo }) => {
   useEffect(() => {
     getProducts()
       .then((respuesta) => {
+        //si existe 
         if(idCategory){
           //filtrar la data por la categoria que almacena idCategory
           const productsFilter = respuesta.filter( (productRes)=> productRes.category === idCategory )
           setProducts(productsFilter)
+          //sino existe
         }else{
           //al no existir categoria guardamos todos los productos
           setProducts(respuesta);
