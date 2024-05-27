@@ -6,7 +6,12 @@
 .title-item-list-container {
   padding-bottom: 20px;
   display: flex;
+  text-align: center;
+  justify-content: center;
   background-color: bisque;
+
+  
+  
 }
 
 .item-list {

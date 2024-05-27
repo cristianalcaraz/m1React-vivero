@@ -16,14 +16,14 @@ button {
 }
 
 .icono {
-    width: 100px;
-    border-radius: 400px;
+    width: 150px;
+    border-radius: 100px;
 }
 
 .carrito {
     display: flex;
-    height: 80px;
-    width: 65%;
+    height: 90px;
+    width: 60%;
     align-items: center;
     justify-content: flex-end;
 }
