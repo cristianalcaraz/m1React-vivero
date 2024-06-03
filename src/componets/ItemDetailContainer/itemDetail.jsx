@@ -5,20 +5,20 @@ import { CartContext } from "../context/CartContext.jsx";
 
 import "./itemDetail.css";
 
+
 const ItemDetail = ({ product }) => {
-  const [count, setCount] = useState(0); // Estado para la cantidad de productos
-  const { agregarProducto } = useContext(CartContext); // Función para agregar producto al carrito
+  const [ocultarCount, setOcultarCount] = useState(false);
 
-  const addProduct = () => {
-    // Estructuramos el nuevo producto a añadir en el carrito
+  const { agregarProducto } = useContext(CartContext);
+
+  const addProduct = (count) => {
+    //estructuramos el nuevo producto a añadir en el carrito
+    //quantity = cantidad
     const productCart = { ...product, quantity: count };
-    // Usamos la función del contexto para añadir este producto al carrito
+    //usamos la funcion del context para añadir este producto al carrito
     agregarProducto(productCart);
-  };
-
-  const handleCountChange = (newCount) => {
-    // Función para actualizar el estado de la cantidad de productos
-    setCount(newCount);
+    //una vez el usuario clickeo en "agregar producto" ocultamos el componente ItemCount
+    setOcultarCount(true);
   };
 
   return (
@@ -30,11 +30,14 @@ const ItemDetail = ({ product }) => {
         <p className="name-detail">{product.name}</p>
         <p className="text-detail">{product.description}</p>
         <p className="text-detail">Precio: ${product.price}</p>
-        <ItemCount stock={product.stock} onCountChange={handleCountChange} />
-        <button onClick={addProduct}>Agregar al carrito</button>
+        <ItemCount stock={product.stock} addProduct={addProduct} />
+
       </div>
     </div>
   );
 };
 
 export default ItemDetail;
+
+
+ 

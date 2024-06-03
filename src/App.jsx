@@ -21,19 +21,22 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <NavBar></NavBar>
-        <Routes>
-          {/* Corrected the usage of Route component with the `element` prop */}
+        <CartProvider>
 
-          <Route path='/exterior' element={<Exterior />} />
-          <Route path='/interior' element={<Interior />} />
-          <Route path="/" element={<ItemListContainer saludo="Bienvenidos a tu Vivero Digital" />} />
-          <Route path="/category/:idCategory" element={<ItemListContainer saludo="Bienvenidos!!" />} />
-          <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
-        </Routes>
+          <NavBar />
+          <Routes>
+            {/* Corrected the usage of Route component with the element prop */}
+
+            <Route path='/exterior' element={<Exterior />} />
+            <Route path='/interior' element={<Interior />} />
+            <Route path="/" element={<ItemListContainer saludo="Bienvenidos a tu Vivero Digital" />} />
+            <Route path="/category/:idCategory" element={<ItemListContainer saludo="Bienvenidos!!" />} />
+            <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+export default App; 

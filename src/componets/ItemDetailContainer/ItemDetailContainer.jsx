@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true); // Estado para controlar la carga
+  const [productNotFound, setProductNotFound] = useState(false);
   const { idProduct } = useParams();
 
   useEffect(() => {
@@ -13,7 +14,7 @@ const ItemDetailContainer = () => {
 
     getProducts()
       .then((respuesta) => {
-        const productFind = respuesta.find((productRes) => productRes.id === Number(idProduct));
+        const productFind = respuesta.find((productRes) => productRes.id === idProduct);
         if (productFind) {
           setProduct(productFind);
         } else {
