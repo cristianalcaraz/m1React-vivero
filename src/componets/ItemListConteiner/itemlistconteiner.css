@@ -15,11 +15,11 @@
 }
 
 .item-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+ grid-template-columns: 2fr 2fr 2fr;
+ grid-template-rows: 2fr 2fr;
   background-color: bisque;
-  margin-bottom: auto;
-  border: 50%;
+
 
 }
 
@@ -35,5 +35,6 @@
 
 .image-item {
   border-radius: 5px;
+  border-color:#A3E4D7  ;
   margin: auto;
 }

@@ -20,10 +20,3 @@ button {
     border-radius: 100px;
 }
 
-.carrito {
-    display: flex;
-    height: 90px;
-    width: 60%;
-    align-items: center;
-    justify-content: flex-end;
-}
