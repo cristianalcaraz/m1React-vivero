@@ -17,6 +17,7 @@ const ItemDetail = ({ product }) => {
     const productCart = { ...product, quantity: count };
     //usamos la funcion del context para añadir este producto al carrito
     agregarProducto(productCart);
+      
     //una vez el usuario clickeo en "agregar producto" ocultamos el componente ItemCount
     setOcultarCount(true);
   };

@@ -15,10 +15,12 @@ const ItemCount = ({ stock, addProduct }) => {
             setCount(count + 1)
 
     }
+
     //agregar al carrito
     const handleClickAddToCart = () => {
-        console.log(count)
-    }
+        addProduct(count)
+    };
+
     return (
         <div className="itemcount">
             <div className="controls-itemcount">

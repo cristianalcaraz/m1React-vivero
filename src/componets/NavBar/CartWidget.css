@@ -3,15 +3,19 @@
     height: 90px;
     width: 60%;
     align-items: center;
-    justify-content: flex-end;;
+    justify-content: flex-end;
   }
   .cartwidget .number{
     padding: 0 5px;
   }
   
   .cart-red{
-    color: rgb(37, 150, 75);
+   color: rgb(126, 141, 131);
+   
+    
+
   }
   .cart-blue{
     color: rgba(146, 47, 47, 0.274);
+   
   }

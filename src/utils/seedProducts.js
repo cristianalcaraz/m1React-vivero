@@ -1,4 +1,6 @@
-//import ItemListConteiner from "../componets/ItemListConteiner/ItemListConteiner";
+import db from "../db/db.js";
+import { addDoc, collection } from "firebase/firestore";
+
 
 const products = [
     {
@@ -124,14 +126,11 @@ const products = [
 
 ];
 
-//obtener productos
-const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      //simulamos un retraso de red
-      setTimeout(() => {
-        resolve(products)
-      }, 100);
+const seedProducts = () => {
+    products.map(({ id, ...rest }) =>{
+      addDoc(collection(db, "products"), rest)
     });
-  };
-export default getProducts ;
-
+    return
+  }
+  
+  seedProducts()

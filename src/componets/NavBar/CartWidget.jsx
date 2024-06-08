@@ -11,10 +11,11 @@ const CartWidget = () => {
   let cantidad = cantidadTotal()
 
   return (
-    <Link to="/cart" className={ cantidad >= 1 ? "cartwireddget cart-" : "cartwidget cart-blue" }>
+    <Link to="/cart" className={ cantidad >= 1 ? "cartwireddget cart-red" : "cartwidget cart-blue" }>
       <IoBagRemoveOutline size={35}/>
       <p className="number"> { cantidad >=1 && cantidad } </p>
     </Link>
   )
 }
 export default CartWidget   
+

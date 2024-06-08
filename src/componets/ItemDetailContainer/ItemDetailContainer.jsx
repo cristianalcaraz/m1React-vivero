@@ -1,48 +1,35 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./itemDetail.jsx";
-import getProducts from "../../data/data";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import db from "../../db/db.js";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true); // Estado para controlar la carga
-  const [productNotFound, setProductNotFound] = useState(false);
+//  const [productNotFound, setProductNotFound] = useState(false);
   const { idProduct } = useParams();
 
-  useEffect(() => {
+// getdDoc un solo producto cuantos serian para cargar todos ? linea 18
+  const getProduct = () => {
     setLoading(true);
 
-    getProducts()
-      .then((respuesta) => {
-        const productFind = respuesta.find((productRes) => productRes.id === idProduct);
-        if (productFind) {
-          setProduct(productFind);
-        } else {
-          // Manejar el caso en el que no se encuentre ningún producto
-          console.log("Producto no encontrado");
-          // Aquí podrías establecer un estado para indicar que el producto no se encontró
-          setProductNotFound(true);
-        }
+    const productRef = doc(db, "products", idProduct);
+    getDoc(productRef)
+      .then((productDb) => {
+        //formateamos correctamente nuestro producto
+        const data = { id: productDb.id, ...productDb.data() };
+        setProduct(data);
       })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
-        console.log("Finalizó la promesa");
-      });
+      .finally(() => setLoading(false));
+  };
+
+
+  useEffect(() => {
+    getProduct();
   }, [idProduct]);
 
-  return (
-    <div>
-      {loading ? (
-        <p>Cargando...</p>
-      ) : productNotFound ? (
-        <p>Producto no encontrado</p> // Mensaje para indicar que el producto no se encontró
-      ) : (
-        <ItemDetail product={product} />
-      )}
-    </div>
-  );
-}
-export default ItemDetailContainer;
+  return loading ? <loading /> : <ItemDetail product={product} />;
+};
+
+  export default ItemDetailContainer;
