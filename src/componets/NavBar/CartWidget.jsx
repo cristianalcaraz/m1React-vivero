@@ -2,7 +2,7 @@ import { IoBagRemoveOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import "./cartWidget.css"
+import "./CartWidget.css"
 
 
 const CartWidget = () => {
